@@ -16,10 +16,7 @@ class MyDocument extends Document {
             content='Профессиональная переподготовка с дипломом государственного образца'
           />
           <link rel='icon' href='/favicon.ico' />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
+
           <script
             src='https://code.jquery.com/jquery-3.6.0.min.js'
             integrity='sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4='
@@ -45,6 +42,10 @@ class MyDocument extends Document {
             crossOrigin='anonymous'
             referrerPolicy='no-referrer'></script>
           <script type='text/javascript' src='/assets/js/myjs.js'></script>
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
         </body>
       </Html>
     )
