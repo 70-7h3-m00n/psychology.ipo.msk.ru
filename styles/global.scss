@@ -3277,3 +3277,16 @@ footer {
     padding-top: 65px;
   }
 }
+
+.popup-overlay {
+  background-color: rgb(#000, 0.5);
+  overflow-y: auto;
+}
+
+.popup-bottom {
+  overflow: hidden;
+}
+
+a {
+  cursor: pointer;
+}

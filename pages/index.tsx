@@ -1,6 +1,47 @@
+import PopupForm from '@/components/popups/PopupForm'
 import Head from 'next/head'
+import Popup from 'reactjs-popup'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import onSubmitForm from '@/components/hooks/onSubmitForm'
+import PopupThankyou from '@/components/popups/PopupThankyou'
+import PopupLoader from '@/components/popups/PopupLoader'
+import PopupError from '@/components/popups/PopupError'
 
-const Home = () => {
+type FormValues = {
+  name: string
+  phone: string
+  email: string
+}
+
+const Home = ({ data }) => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm<FormValues>()
+
+  const [open, setOpen] = useState(false)
+  const [openLoader, setOpenLoader] = useState(false)
+  const [showError, setShowError] = useState(false)
+  const closeModal = () => setOpen(false)
+  const closeLoadingModal = () => setOpenLoader(false)
+  const closeError = () => setShowError(false)
+
+  const onSubmitFormThis = async values => {
+    setOpenLoader(o => !o)
+    const req = await onSubmitForm(values)
+    if (req === 200) {
+      closeLoadingModal()
+      setOpen(o => !o)
+      reset()
+    } else {
+      closeLoadingModal()
+      setShowError(o => !o)
+    }
+  }
+
   return (
     <>
       <Head>
@@ -9,6 +50,16 @@ const Home = () => {
 
       {/* tesing deploy */}
       <div className='page'>
+        <Popup open={openLoader} onClose={closeLoadingModal}>
+          <PopupLoader close={closeLoadingModal} />
+        </Popup>
+        <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+          <PopupThankyou close={closeModal} />
+        </Popup>
+        <Popup open={showError} closeOnDocumentClick onClose={closeModal}>
+          <PopupError close={closeModal} />
+        </Popup>
+
         {/* header */}
         <header>
           <div className='container'>
@@ -20,12 +71,12 @@ const Home = () => {
               <div className='header-content'>
                 <ul className='header-menu'>
                   <li>
-                    <a
-                      href='#signModal'
-                      className='popup-open'
-                      data-effect='mfp-zoom-in'>
-                      Консультация по программе обучения
-                    </a>
+                    <Popup
+                      trigger={<a>Консультация по программе обучения</a>}
+                      modal
+                      nested>
+                      {close => <PopupForm close={close} />}
+                    </Popup>
                   </li>
                   <li>
                     <a href='#reviews' className='to-scroll'>
@@ -109,12 +160,17 @@ const Home = () => {
                     </div>
                     <div className='title'>Скидка 40% на все программы!</div>
                     <div className='date'>до 31 марта</div>
-                    <a
-                      href='#signModal'
-                      className='button blue-button popup-open'
-                      data-effect='mfp-zoom-in'>
-                      Получить программу обучения!
-                    </a>
+
+                    <Popup
+                      trigger={
+                        <button className='button blue-button'>
+                          Получить программу обучения!
+                        </button>
+                      }
+                      modal
+                      nested>
+                      {close => <PopupForm close={close} />}
+                    </Popup>
                   </div>
                 </div>
               </div>
@@ -408,12 +464,14 @@ const Home = () => {
                       Узнайте больше о преимуществах программы обучения на
                       персональной консультации!
                     </p>
-                    <a
-                      href='#signModal'
-                      className='button popup-open'
-                      data-effect='mfp-zoom-in'>
-                      Оставить заявку
-                    </a>
+                    <Popup
+                      trigger={
+                        <button className='button'>Оставить заявку</button>
+                      }
+                      modal
+                      nested>
+                      {close => <PopupForm close={close} />}
+                    </Popup>
                   </div>
                 </li>
               </ul>
@@ -424,12 +482,14 @@ const Home = () => {
                     40% на программы по <br />
                     психологии!
                   </div>
-                  <a
-                    href='#signModal'
-                    className='button blue-button popup-open'
-                    data-effect='mfp-zoom-in'>
-                    Получить
-                  </a>
+                  <Popup
+                    trigger={
+                      <button className='button blue-button'>Получить</button>
+                    }
+                    modal
+                    nested>
+                    {close => <PopupForm close={close} />}
+                  </Popup>
                 </div>
                 <div className='results-pic'>
                   <img
@@ -672,12 +732,12 @@ const Home = () => {
                     <span>Получите</span> консультацию, презентацию программы и
                     описание текущих акций <span>прямо сейчас!</span>
                   </h2>
-                  <a
-                    href='#signModal'
-                    className='button popup-open'
-                    data-effect='mfp-zoom-in'>
-                    Получить
-                  </a>
+                  <Popup
+                    trigger={<button className='button'>Получить</button>}
+                    modal
+                    nested>
+                    {close => <PopupForm close={close} />}
+                  </Popup>
                 </div>
               </div>
             </div>
@@ -827,12 +887,17 @@ const Home = () => {
                   />
                 </div>
               </div>
-              <a
-                href='#signModal'
-                className='button blue-button popup-open'
-                data-effect='mfp-zoom-in'>
-                Получить подарок
-              </a>
+
+              <Popup
+                trigger={
+                  <button className='button blue-button'>
+                    Получить подарок
+                  </button>
+                }
+                modal
+                nested>
+                {close => <PopupForm close={close} />}
+              </Popup>
             </div>
           </section>
 
@@ -849,12 +914,15 @@ const Home = () => {
                     В крупнейшей Российской онлайн-школе английского языка
                     Skyeng вместе с Институтом Профессионального Образования!
                   </div>
-                  <a
-                    href='#signModal'
-                    className='button popup-open'
-                    data-effect='mfp-zoom-in'>
-                    Получить диплом
-                  </a>
+
+                  <Popup
+                    trigger={
+                      <button className='button'>Получить диплом</button>
+                    }
+                    modal
+                    nested>
+                    {close => <PopupForm close={close} />}
+                  </Popup>
                 </div>
                 <div className='diplom-images'>
                   <div
@@ -897,12 +965,17 @@ const Home = () => {
                     />
                   </div>
                 </div>
-                <a
-                  href='#signModal'
-                  className='button popup-open mobile-diplom-link'
-                  data-effect='mfp-zoom-in'>
-                  Получить диплом
-                </a>
+
+                <Popup
+                  trigger={
+                    <button className='button mobile-diplom-link'>
+                      Получить диплом
+                    </button>
+                  }
+                  modal
+                  nested>
+                  {close => <PopupForm close={close} />}
+                </Popup>
               </div>
             </div>
           </section>
@@ -1157,16 +1230,56 @@ const Home = () => {
           <section className='request-section'>
             <div className='container'>
               <div className='title'>Оставьте заявку прямо сейчас!</div>
-              <form action='#' method='post' className='simple-form white-form'>
+              <form
+                method='post'
+                className='simple-form white-form'
+                onSubmit={handleSubmit(onSubmitFormThis)}>
                 <div className='inputs-flex'>
                   <div className='input-block width-25'>
-                    <input type='text' placeholder='Имя' />
+                    <input
+                      type='text'
+                      placeholder='Имя'
+                      {...register('name', {
+                        maxLength: {
+                          value: 32,
+                          message: `*Слишком длинное имя`
+                        }
+                      })}
+                    />
+                    <p className='inpt-err-msg'>
+                      {errors.name && errors.name.message}
+                    </p>
                   </div>
                   <div className='input-block width-25'>
-                    <input type='text' placeholder='E-mail' />
+                    <input
+                      type='email'
+                      placeholder='E-mail'
+                      {...register('email', {
+                        minLength: {
+                          value: 4,
+                          message: `*Email слишком короткий`
+                        }
+                      })}
+                    />
+                    <p className='inpt-err-msg'>
+                      {errors.email && errors.email.message}
+                    </p>
                   </div>
                   <div className='input-block width-25'>
-                    <input type='text' placeholder='Телефон' />
+                    <input
+                      type='tel'
+                      placeholder='Телефон'
+                      {...register('phone', {
+                        required: `*Пожалуйста, введите Ваш номер телефона`,
+                        minLength: {
+                          value: 5,
+                          message: `*Номер телефона слишком короткий`
+                        }
+                      })}
+                    />
+                    <p className='inpt-err-msg'>
+                      {errors.phone && errors.phone.message}
+                    </p>
                   </div>
                   <div className='input-block width-25'>
                     <button type='submit' className='button'>
@@ -1193,12 +1306,12 @@ const Home = () => {
               </div>
               <ul className='footer-menu'>
                 <li>
-                  <a
-                    href='#signModal'
-                    className='popup-open'
-                    data-effect='mfp-zoom-in'>
-                    Консультация по программе обучения
-                  </a>
+                  <Popup
+                    trigger={<a>Консультация по программе обучения</a>}
+                    modal
+                    nested>
+                    {close => <PopupForm close={close} />}
+                  </Popup>
                 </li>
                 <li>
                   <a href='#reviews' className='to-scroll'>
@@ -1225,63 +1338,18 @@ const Home = () => {
           </div>
         </footer>
         {/* /footer */}
-
-        {/* popup */}
-        <div id='signModal' className='popup-modal mfp-hide mfp-with-anim'>
-          <div className='popup-content'>
-            <div className='popup-top'>
-              <h4>Профессиональная переподготовка на психолога</h4>
-              <div className='desc'>
-                Станьте востребованным специалистом в новой области!
-              </div>
-            </div>
-            <div className='popup-bottom'>
-              <div className='modal-pic'>
-                <img src='/assets/images/results-pic.svg' alt='' />
-              </div>
-              <div className='modal-wave'>
-                <img src='/assets/images/wave-modal.svg' alt='' />
-              </div>
-              <form action='#' method='post' className='simple-form'>
-                <div className='inputs-flex'>
-                  <div className='input-block width-50'>
-                    <input type='text' placeholder='Имя' />
-                  </div>
-                  <div className='input-block width-50'>
-                    <input type='text' placeholder='E-mail' />
-                  </div>
-                  <div className='input-block width-50'>
-                    <input type='text' placeholder='Телефон' />
-                  </div>
-                  <div className='input-block width-50'>
-                    <button type='submit' className='button'>
-                      Получить предложение!
-                    </button>
-                  </div>
-                </div>
-                <div className='input-block'>
-                  <div className='checkbox-block'>
-                    <label className='checkbox'>
-                      <input type='checkbox' />
-                      <i></i>
-                      <span>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        <br />
-                        <a href=''>Политика конфиденциальности</a>.
-                      </span>
-                    </label>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <button className='mfp-close' type='button'>
-              <img src='/assets/images/close.svg' alt='' />
-            </button>
-          </div>
-        </div>
       </div>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const data = []
+  return {
+    props: {
+      data
+    }
+  }
 }
 
 export default Home
