@@ -112,239 +112,239 @@ export default async (req, res) => {
   const subject = 'Новая заявка с psychology.ipo.msk.ru'
 
   const createEmailBody = () => {
-    const createTr = (item, idx) => {
-      const output = /* html */ `
-        <tr id='tr-item-${idx}' class="${idx % 2 === 0 && 'bgOnEven'} ${
-        item.tdKey === 'Телефон' && 'active-row'
-      } ${!(idx + 1) && 'bgBorderHighlight'}">
-          <td class="counterCell">${idx + 1}</td>
-          <td>${item.tdKey}</td>
-          <td>${item.tdVal}</td>
-        </tr>
-      `
-      return output
-    }
+    // const createTr = (item, idx) => {
+    //   const output = /* html */ `
+    //     <tr id='tr-item-${idx}' class="${idx % 2 === 0 && 'bgOnEven'} ${
+    //     item.tdKey === 'Телефон' && 'active-row'
+    //   } ${!(idx + 1) && 'bgBorderHighlight'}">
+    //       <td class="counterCell">${idx + 1}</td>
+    //       <td>${item.tdKey}</td>
+    //       <td>${item.tdVal}</td>
+    //     </tr>
+    //   `
+    //   return output
+    // }
 
-    const tbodyTrs = [
-      {
-        tdKey: 'ID',
-        tdVal: data.id
-      },
-      {
-        tdKey: 'Дата',
-        tdVal: data.date
-      },
-      {
-        tdKey: 'Время',
-        tdVal: data.time
-      },
-      {
-        tdKey: 'UTC',
-        tdVal: data.utc
-      },
-      {
-        tdKey: 'Имя',
-        tdVal: data.name
-      },
-      {
-        tdKey: 'Телефон',
-        tdVal: data.phone
-      },
-      {
-        tdKey: 'Почта',
-        tdVal: data.email
-      },
-      {
-        tdKey: 'Промокод',
-        tdVal: data.promocode
-      },
-      {
-        tdKey: 'Способ связи',
-        tdVal: data.contactWay
-      },
-      {
-        tdKey: 'Лид сайт',
-        tdVal: data.root
-      },
-      {
-        tdKey: 'Лид страница',
-        tdVal: data.path
-      },
-      {
-        tdKey: 'IP',
-        tdVal: data.ip
-      },
-      {
-        tdKey: 'Город (en)',
-        tdVal: data.cityEn
-      },
-      {
-        tdKey: 'Город (ru)',
-        tdVal: data.cityRu
-      },
-      {
-        tdKey: 'Код страны',
-        tdVal: data.countryCode
-      },
-      {
-        tdKey: 'Страна (en)',
-        tdVal: data.countryEn
-      },
-      {
-        tdKey: 'Страна (ru)',
-        tdVal: data.countryRu
-      },
-      {
-        tdKey: 'Континент код',
-        tdVal: data.continentCode
-      },
-      {
-        tdKey: 'Континент (en)',
-        tdVal: data.continentEn
-      },
-      {
-        tdKey: 'Континент (ru)',
-        tdVal: data.continentRu
-      },
-      {
-        tdKey: 'Погрешность (м)',
-        tdVal: data.accuracyRadius
-      },
-      {
-        tdKey: 'Широта',
-        tdVal: data.latitude
-      },
-      {
-        tdKey: 'Долгота',
-        tdVal: data.longitude
-      },
-      {
-        tdKey: 'Часовой пояс',
-        tdVal: data.timeZone
-      },
-      {
-        tdKey: 'Зип код',
-        tdVal: data.postalCode
-      },
-      {
-        tdKey: 'Направление',
-        tdVal: ''
-      },
-      {
-        tdKey: 'Университет',
-        tdVal: ''
-      },
-      {
-        tdKey: 'Вопрос',
-        tdVal: ''
-      },
-      {
-        tdKey: 'Google Client ID',
-        tdVal: ''
-      },
-      {
-        tdKey: 'Yandex Metrics ID',
-        tdVal: ''
-      },
-      {
-        tdKey: 'Устройство пользователя',
-        tdVal: ''
-      },
-      {
-        tdKey: 'Источник рекламы',
-        tdVal: ''
-      },
-      {
-        tdKey: 'Тип трафика',
-        tdVal: ''
-      },
-      {
-        tdKey: 'Название РК',
-        tdVal: ''
-      },
-      {
-        tdKey: 'Объявление',
-        tdVal: ''
-      },
-      {
-        tdKey: 'Ключевое слово',
-        tdVal: ''
-      },
-      {
-        tdKey: 'Дубль',
-        tdVal: ''
-      }
-    ]
+    // const tbodyTrs = [
+    //   {
+    //     tdKey: 'ID',
+    //     tdVal: data.id
+    //   },
+    //   {
+    //     tdKey: 'Дата',
+    //     tdVal: data.date
+    //   },
+    //   {
+    //     tdKey: 'Время',
+    //     tdVal: data.time
+    //   },
+    //   {
+    //     tdKey: 'UTC',
+    //     tdVal: data.utc
+    //   },
+    //   {
+    //     tdKey: 'Имя',
+    //     tdVal: data.name
+    //   },
+    //   {
+    //     tdKey: 'Телефон',
+    //     tdVal: data.phone
+    //   },
+    //   {
+    //     tdKey: 'Почта',
+    //     tdVal: data.email
+    //   },
+    //   {
+    //     tdKey: 'Промокод',
+    //     tdVal: data.promocode
+    //   },
+    //   {
+    //     tdKey: 'Способ связи',
+    //     tdVal: data.contactWay
+    //   },
+    //   {
+    //     tdKey: 'Лид сайт',
+    //     tdVal: data.root
+    //   },
+    //   {
+    //     tdKey: 'Лид страница',
+    //     tdVal: data.path
+    //   },
+    //   {
+    //     tdKey: 'IP',
+    //     tdVal: data.ip
+    //   },
+    //   {
+    //     tdKey: 'Город (en)',
+    //     tdVal: data.cityEn
+    //   },
+    //   {
+    //     tdKey: 'Город (ru)',
+    //     tdVal: data.cityRu
+    //   },
+    //   {
+    //     tdKey: 'Код страны',
+    //     tdVal: data.countryCode
+    //   },
+    //   {
+    //     tdKey: 'Страна (en)',
+    //     tdVal: data.countryEn
+    //   },
+    //   {
+    //     tdKey: 'Страна (ru)',
+    //     tdVal: data.countryRu
+    //   },
+    //   {
+    //     tdKey: 'Континент код',
+    //     tdVal: data.continentCode
+    //   },
+    //   {
+    //     tdKey: 'Континент (en)',
+    //     tdVal: data.continentEn
+    //   },
+    //   {
+    //     tdKey: 'Континент (ru)',
+    //     tdVal: data.continentRu
+    //   },
+    //   {
+    //     tdKey: 'Погрешность (м)',
+    //     tdVal: data.accuracyRadius
+    //   },
+    //   {
+    //     tdKey: 'Широта',
+    //     tdVal: data.latitude
+    //   },
+    //   {
+    //     tdKey: 'Долгота',
+    //     tdVal: data.longitude
+    //   },
+    //   {
+    //     tdKey: 'Часовой пояс',
+    //     tdVal: data.timeZone
+    //   },
+    //   {
+    //     tdKey: 'Зип код',
+    //     tdVal: data.postalCode
+    //   },
+    //   {
+    //     tdKey: 'Направление',
+    //     tdVal: ''
+    //   },
+    //   {
+    //     tdKey: 'Университет',
+    //     tdVal: ''
+    //   },
+    //   {
+    //     tdKey: 'Вопрос',
+    //     tdVal: ''
+    //   },
+    //   {
+    //     tdKey: 'Google Client ID',
+    //     tdVal: ''
+    //   },
+    //   {
+    //     tdKey: 'Yandex Metrics ID',
+    //     tdVal: ''
+    //   },
+    //   {
+    //     tdKey: 'Устройство пользователя',
+    //     tdVal: ''
+    //   },
+    //   {
+    //     tdKey: 'Источник рекламы',
+    //     tdVal: ''
+    //   },
+    //   {
+    //     tdKey: 'Тип трафика',
+    //     tdVal: ''
+    //   },
+    //   {
+    //     tdKey: 'Название РК',
+    //     tdVal: ''
+    //   },
+    //   {
+    //     tdKey: 'Объявление',
+    //     tdVal: ''
+    //   },
+    //   {
+    //     tdKey: 'Ключевое слово',
+    //     tdVal: ''
+    //   },
+    //   {
+    //     tdKey: 'Дубль',
+    //     tdVal: ''
+    //   }
+    // ]
 
-    const output = /* html */ `
-      <!DOCTYPE html>
-      <html lang="ru">
-        <head>
-          <meta charset="UTF-8" />
-          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      
-          <style>
-            .styled-table {
-              border-collapse: collapse;
-              margin: 25px 0;
-              font-size: 0.9em;
-              font-family: sans-serif;
-              min-width: 400px;
-              box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-              counter-reset: tableCount;
-            }
-            .counterCell::before {
-              content: counter(tableCount);
-              counter-increment: tableCount;
-            }
-            .styled-table thead tr {
-              background-color: #fd7253;
-              color: #ffffff;
-              text-align: left;
-            }
-            .styled-table th,
-            .styled-table td {
-              padding: 12px 15px;
-            }
-            .styled-table tbody tr {
-              border-bottom: thin solid #dddddd;
-            }
-      
-            .styled-table tbody tr:nth-of-type(even),
-            .bgOnEven {
-              background-color: #f3f3f3;
-            }
-      
-            .styled-table tbody tr:last-of-type,
-            .bgBorderHighlight {
-              border-bottom: 2px solid #fd7253;
-            }
-            .styled-table tbody tr.active-row {
-              font-weight: bold;
-              color: #fd7253;
-            }
-          </style>
-          <title>${subject}</title>
-        </head>
-        <body>
-          <h1>${subject}</h1>
-          <p>🎉🥳🎉 Ура! Новая заявка с ${root}! 🎉🥳🎉</p>
-          <table class="styled-table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Ключ</th>
-                <th>Значение</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${tbodyTrs.map(createTr).join('')}
-            </tbody>
-          </table>
-        </body>
-      </html>
-    `
+    // const output = /* html */ `
+    //   <!DOCTYPE html>
+    //   <html lang="ru">
+    //     <head>
+    //       <meta charset="UTF-8" />
+    //       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    //       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    //       <style>
+    //         .styled-table {
+    //           border-collapse: collapse;
+    //           margin: 25px 0;
+    //           font-size: 0.9em;
+    //           font-family: sans-serif;
+    //           min-width: 400px;
+    //           box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    //           counter-reset: tableCount;
+    //         }
+    //         .counterCell::before {
+    //           content: counter(tableCount);
+    //           counter-increment: tableCount;
+    //         }
+    //         .styled-table thead tr {
+    //           background-color: #fd7253;
+    //           color: #ffffff;
+    //           text-align: left;
+    //         }
+    //         .styled-table th,
+    //         .styled-table td {
+    //           padding: 12px 15px;
+    //         }
+    //         .styled-table tbody tr {
+    //           border-bottom: thin solid #dddddd;
+    //         }
+
+    //         .styled-table tbody tr:nth-of-type(even),
+    //         .bgOnEven {
+    //           background-color: #f3f3f3;
+    //         }
+
+    //         .styled-table tbody tr:last-of-type,
+    //         .bgBorderHighlight {
+    //           border-bottom: 2px solid #fd7253;
+    //         }
+    //         .styled-table tbody tr.active-row {
+    //           font-weight: bold;
+    //           color: #fd7253;
+    //         }
+    //       </style>
+    //       <title>${subject}</title>
+    //     </head>
+    //     <body>
+    //       <h1>${subject}</h1>
+    //       <p>🎉🥳🎉 Ура! Новая заявка с ${root}! 🎉🥳🎉</p>
+    //       <table class="styled-table">
+    //         <thead>
+    //           <tr>
+    //             <th>#</th>
+    //             <th>Ключ</th>
+    //             <th>Значение</th>
+    //           </tr>
+    //         </thead>
+    //         <tbody>
+    //           ${tbodyTrs.map(createTr).join('')}
+    //         </tbody>
+    //       </table>
+    //     </body>
+    //   </html>
+    // `
 
     const outputIPO = emailTemplateIPO(data)
 
