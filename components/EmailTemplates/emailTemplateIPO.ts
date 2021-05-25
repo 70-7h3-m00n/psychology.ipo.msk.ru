@@ -165,7 +165,7 @@ const output = ({ id, date, time, name, phone, email, cityRu, countryRu }) => {
               <p>Имя: ${name}</p>
         <p>E-mail: ${email}</p>
         <p>Телефон: ${phone}</p>
-        <p><b>Комментарий:</b> ''</p>
+        <p><b>Комментарий:</b></p>
         <b><p>Дата и время заявки: ${date} в ${time}</p></b>
         <b><p>Город: ${cityRu}</p></b>
         <b><p>Страна: ${countryRu}</p></b>
