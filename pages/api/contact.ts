@@ -346,9 +346,9 @@ export default async (req, res) => {
       </html>
     `
 
-    // const outputIPO = emailTemplateIPO(data)
+    const outputIPO = emailTemplateIPO(data)
 
-    return output
+    return outputIPO
   }
 
   const html = createEmailBody()
@@ -378,7 +378,7 @@ export default async (req, res) => {
   //     }`,
   try {
     const emailRes = await transporter.sendMail({
-      from: 'lead@psychology.ipo.msk.ru',
+      from: 'info@ipo.msk.ru',
       to: `${
         dev
           ? 'nova@ipo.msk.ru, novailoveyou3@gmail.com'

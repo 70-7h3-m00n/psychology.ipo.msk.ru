@@ -7,6 +7,7 @@ import onSubmitForm from '@/components/hooks/onSubmitForm'
 import PopupThankyou from '@/components/popups/PopupThankyou'
 import PopupLoader from '@/components/popups/PopupLoader'
 import PopupError from '@/components/popups/PopupError'
+import DatesUntil from '@/components/dates/DatesUntil'
 
 type FormValues = {
   name: string
@@ -159,7 +160,9 @@ const Home = ({ data }) => {
                       />
                     </div>
                     <div className='title'>Скидка 40% на все программы!</div>
-                    <div className='date'>до 31 марта</div>
+                    <div className='date'>
+                      <DatesUntil preposition={true} />
+                    </div>
 
                     <Popup
                       trigger={
