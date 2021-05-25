@@ -372,11 +372,11 @@ export default async (req, res) => {
 
   try {
     const emailRes = await transporter.sendMail({
-      from: 'lead@psychology.ipo.msk.ru',
+      from: 'info@ipo.msk.ru',
       to: `${
         dev
           ? 'nova@ipo.msk.ru, novailoveyou3@gmail.com'
-          : 'mba.academy@yandex.ru, leads@moscow.mba'
+          : 'info@ipo.msk.ru, iconelp@yandex.ru'
       }`,
       subject, // Subject line
       text: `
