@@ -109,7 +109,7 @@ export default async (req, res) => {
     postalCode: locationData && locationData.postalCode
   }
 
-  const subject = 'Новая заявка с moscow.mba'
+  const subject = 'Новая заявка с psychology.ipo.msk.ru'
 
   const createEmailBody = () => {
     const createTr = (item, idx) => {
@@ -299,7 +299,7 @@ export default async (req, res) => {
               counter-increment: tableCount;
             }
             .styled-table thead tr {
-              background-color: #ff3535;
+              background-color: #fd7253;
               color: #ffffff;
               text-align: left;
             }
@@ -318,11 +318,11 @@ export default async (req, res) => {
       
             .styled-table tbody tr:last-of-type,
             .bgBorderHighlight {
-              border-bottom: 2px solid #ff3535;
+              border-bottom: 2px solid #fd7253;
             }
             .styled-table tbody tr.active-row {
               font-weight: bold;
-              color: #ff3535;
+              color: #fd7253;
             }
           </style>
           <title>${subject}</title>
@@ -346,9 +346,9 @@ export default async (req, res) => {
       </html>
     `
 
-    const outputIPO = emailTemplateIPO(data)
+    // const outputIPO = emailTemplateIPO(data)
 
-    return outputIPO
+    return output
   }
 
   const html = createEmailBody()
