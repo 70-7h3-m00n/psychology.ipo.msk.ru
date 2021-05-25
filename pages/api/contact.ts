@@ -370,9 +370,15 @@ export default async (req, res) => {
     }
   })
 
+  // from: 'info@ipo.msk.ru',
+  //     to: `${
+  //       dev
+  //         ? 'nova@ipo.msk.ru, novailoveyou3@gmail.com'
+  //         : 'info@ipo.msk.ru, iconelp@yandex.ru'
+  //     }`,
   try {
     const emailRes = await transporter.sendMail({
-      from: 'info@ipo.msk.ru',
+      from: 'lead@psychology.ipo.msk.ru',
       to: `${
         dev
           ? 'nova@ipo.msk.ru, novailoveyou3@gmail.com'
