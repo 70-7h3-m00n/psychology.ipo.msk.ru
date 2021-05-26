@@ -1198,7 +1198,8 @@ const Home = ({ data }) => {
                           alt=''
                         />
                         <div className='title'>
-                          Скидка 40% при бронировании до 31 марта 2021
+                          Скидка 40% при бронировании до{' '}
+                          <DatesUntil preposition={true} />
                         </div>
                         <div className='price'>
                           <span className='old-price'>39900 руб.</span>
