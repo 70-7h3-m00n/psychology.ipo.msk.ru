@@ -1198,7 +1198,7 @@ const Home = ({ data }) => {
                           alt=''
                         />
                         <div className='title'>
-                          Скидка 40% при бронировании до{' '}
+                          Скидка 40% при бронировании{' '}
                           <DatesUntil preposition={true} />
                         </div>
                         <div className='price'>
