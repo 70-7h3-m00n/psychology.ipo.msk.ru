@@ -85,7 +85,9 @@ const Home = ({ data }) => {
                     </a>
                   </li>
                 </ul>
-                <a href='tel:8-499-521-28-12' className='header-phone'>
+                <a
+                  href='tel:8-499-521-28-12'
+                  className='header-phone mangoNumber'>
                   +7 (499) 521 28 12
                 </a>
               </div>
@@ -1328,7 +1330,7 @@ const Home = ({ data }) => {
               </ul>
               <ul className='footer-contacts'>
                 <li>
-                  <a href='tel:8-499-521-28-12' className='phone'>
+                  <a href='tel:8-499-521-28-12' className='phone mangoNumber'>
                     +7 (499) 521 28 12
                   </a>
                 </li>
