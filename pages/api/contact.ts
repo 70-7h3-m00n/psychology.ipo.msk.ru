@@ -12,7 +12,17 @@ import emailTemplateIPO from '@/components/EmailTemplates/emailTemplateIPO'
 export default async (req, res) => {
   process.env.TZ = 'Europe/Moscow'
   // data from the client
-  const { name, email, phone } = req.body
+  const {
+    name,
+    email,
+    phone,
+    utmSource,
+    utmMedium,
+    utmCampaign,
+    utmContent,
+    utmTerm,
+    utmWorker
+  } = req.body
 
   const promocode = null
 
@@ -106,7 +116,13 @@ export default async (req, res) => {
     latitude: locationData && locationData.coordinates.latitude,
     longitude: locationData && locationData.coordinates.longitude,
     timeZone: locationData && locationData.timeZone,
-    postalCode: locationData && locationData.postalCode
+    postalCode: locationData && locationData.postalCode,
+    utmSource: utmSource || '',
+    utmMedium: utmMedium || '',
+    utmCampaign: utmCampaign || '',
+    utmContent: utmContent || '',
+    utmTerm: utmTerm || '',
+    utmWorker: utmWorker || ''
   }
 
   const subject = 'Новая заявка с psychology.ipo.msk.ru'

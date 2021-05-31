@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Popup from 'reactjs-popup'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useRouter } from 'next/router'
 import onSubmitForm from '@/components/hooks/onSubmitForm'
 import PopupThankyou from '@/components/popups/PopupThankyou'
 import PopupLoader from '@/components/popups/PopupLoader'
@@ -26,12 +27,40 @@ const Home = ({ data }) => {
   const [open, setOpen] = useState(false)
   const [openLoader, setOpenLoader] = useState(false)
   const [showError, setShowError] = useState(false)
+
   const closeModal = () => setOpen(false)
   const closeLoadingModal = () => setOpenLoader(false)
   const closeError = () => setShowError(false)
 
+  const { asPath } = useRouter()
+
+  const arrToObj = arr => {
+    const obj = {}
+    arr.forEach(item => {
+      obj[item[0]] = item[1]
+    })
+    return obj
+  }
+
+  const gatherUtms = () => {
+    const utmsArr = asPath
+      .slice(2)
+      .split('&')
+      .map(utm => utm.split('='))
+    const utmsObj = arrToObj(utmsArr)
+    return utmsObj
+  }
+
+  const utmsObj = gatherUtms()
+
   const onSubmitFormThis = async values => {
     setOpenLoader(o => !o)
+    values.utmSource = utmsObj['utm_source']
+    values.utmMedium = utmsObj['utm_medium']
+    values.utmCampaign = utmsObj['utm_campaign']
+    values.utmContent = utmsObj['utm_content']
+    values.utmTerm = utmsObj['utm_term']
+    values.utmWorker = utmsObj['utm_worker']
     const req = await onSubmitForm(values)
     if (req === 200) {
       closeLoadingModal()

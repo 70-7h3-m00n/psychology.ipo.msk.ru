@@ -1,6 +1,22 @@
 import { backendUrl } from '@/config/index'
 
-const output = ({ id, date, time, name, phone, email, cityRu, countryRu }) => {
+const output = ({
+  id,
+  date,
+  time,
+  name,
+  phone,
+  email,
+  cityRu,
+  countryRu,
+  utmSource,
+  utmMedium,
+  utmCampaign,
+  utmContent,
+  utmTerm,
+  utmWorker
+}) => {
+  console.log(utmSource)
   return /* html */ `
   <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
   <html style='width:100%;font-family:arial, "helvetica neue", helvetica, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0;'>
@@ -169,7 +185,7 @@ const output = ({ id, date, time, name, phone, email, cityRu, countryRu }) => {
         <b><p>Дата и время заявки: ${date} в ${time}</p></b>
         <b><p>Город: ${cityRu}</p></b>
         <b><p>Страна: ${countryRu}</p></b>
-          <b><p>Страница с которой отправлена заявка:</p></b>
+          <b><p>Страница с которой отправлена заявка: https://psychology.ipo.msk.ru/</p></b>
           <b><p>UTM метка:</p></b>
           <b><p>Устройство:
           <b><p>UTM ссылка перехода:
@@ -182,12 +198,12 @@ const output = ({ id, date, time, name, phone, email, cityRu, countryRu }) => {
           <b><p>Уч.план:</p></b>
           <b><p>Google Client ID:</p></b>
           <b><p>Yandex Metrics ID:</p></b>
-          <b><p>utm_source:</p></b>
-          <b><p>utm_medium:</p></b>
-          <b><p>utm_campaign:</p></b>
-          <b><p>utm_content:</p></b>
-          <b><p>utm_term:</p></b>
-          <b><p>utm_worker:</p></b>
+          <b><p>utm_source: ${utmSource}</p></b>
+          <b><p>utm_medium: ${utmMedium}</p></b>
+          <b><p>utm_campaign: ${utmCampaign}</p></b>
+          <b><p>utm_content: ${utmContent}</p></b>
+          <b><p>utm_term: ${utmTerm}</p></b>
+          <b><p>utm_worker: ${utmWorker}</p></b>
          </tr> 
                   </tbody> 
                  </table> </td>
