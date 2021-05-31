@@ -114,8 +114,10 @@ const Home = ({ data }) => {
                     </a>
                   </li>
                 </ul>
-                <a href='tel:8-499-521-28-12' className='header-phone'>
-                  +7 (499) 521 28 12
+                <a
+                  href='tel:+7-495-129-02-63'
+                  className='header-phone mangoNumber'>
+                  +7 (495) 129 02 63
                 </a>
               </div>
               <div className='mobile-buter'>
@@ -1357,8 +1359,8 @@ const Home = ({ data }) => {
               </ul>
               <ul className='footer-contacts'>
                 <li>
-                  <a href='tel:8-499-521-28-12' className='phone'>
-                    +7 (499) 521 28 12
+                  <a href='tel:+7-495-129-02-63' className='phone mangoNumber'>
+                    +7 (495) 129 02 63
                   </a>
                 </li>
                 <li>
