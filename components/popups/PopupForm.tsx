@@ -150,7 +150,7 @@ const PopupForm = ({ close }) => {
                 </button>
               </div>
             </div>
-            <div className='input-block'>
+            {/* <div className='input-block'>
               <div className='checkbox-block'>
                 <label className='checkbox'>
                   <input type='checkbox' />
@@ -162,7 +162,7 @@ const PopupForm = ({ close }) => {
                   </span>
                 </label>
               </div>
-            </div>
+            </div> */}
           </form>
         </div>
         <button className='mfp-close' type='button' onClick={close}>
