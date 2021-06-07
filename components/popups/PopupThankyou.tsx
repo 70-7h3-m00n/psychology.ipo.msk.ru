@@ -1,10 +1,8 @@
+import { useEffect } from 'react'
+
 const PopupThankyou = ({ close }) => {
-  const leadEvent = new Event('lead')
-
-  dispatchEvent(leadEvent)
-
   return (
-    <div className='popup-modal mfp-with-anim'>
+    <div id='thankyou' className='popup-modal mfp-with-anim'>
       <div className='popup-content'>
         <div className='popup-top'>
           <h4>Заявка отправлена</h4>
