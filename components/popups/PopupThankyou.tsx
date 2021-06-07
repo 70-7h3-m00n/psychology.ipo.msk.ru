@@ -1,8 +1,6 @@
-import { useEffect } from 'react'
-
 const PopupThankyou = ({ close }) => {
   return (
-    <div id='thankyou' className='popup-modal mfp-with-anim'>
+    <div id='thankyou' className='popup-modal mfp-with-anim thankyouPopUp'>
       <div className='popup-content'>
         <div className='popup-top'>
           <h4>Заявка отправлена</h4>

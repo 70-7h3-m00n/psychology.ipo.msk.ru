@@ -3290,3 +3290,17 @@ footer {
 a {
   cursor: pointer;
 }
+
+.thankyouPopUp {
+  animation: thankyou 0.01s ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes thankyou {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
