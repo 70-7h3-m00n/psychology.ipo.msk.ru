@@ -1,12 +1,15 @@
 import { useEffect } from 'react'
+import TagManager from 'react-gtm-module'
 
 const PopupThankyou = ({ close }) => {
   useEffect(() => {
-    const leadEvent = new Event('lead')
-    const thankyouEl = document.getElementById('thankyou')
-    thankyouEl.addEventListener('lead', () => true)
-    thankyouEl.dispatchEvent(leadEvent)
-  })
+    const tagManagerArgs = {
+      dataLayer: {
+        event: 'lead'
+      }
+    }
+    TagManager.dataLayer(tagManagerArgs)
+  }, [])
   return (
     <div id='thankyou' className='popup-modal mfp-with-anim'>
       <div className='popup-content'>
