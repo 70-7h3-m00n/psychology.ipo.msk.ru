@@ -1,4 +1,8 @@
 const PopupThankyou = ({ close }) => {
+  const leadEvent = new Event('lead')
+
+  dispatchEvent(leadEvent)
+
   return (
     <div className='popup-modal mfp-with-anim'>
       <div className='popup-content'>
