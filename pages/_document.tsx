@@ -17,6 +17,11 @@ class MyDocument extends Document {
           />
           <link rel='icon' href='/favicon.ico' />
 
+          <meta
+            name='facebook-domain-verification'
+            content='8dw7ic38j9fzri38ak0xd5scopqo4k'
+          />
+
           <script
             src='https://code.jquery.com/jquery-3.6.0.min.js'
             integrity='sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4='
