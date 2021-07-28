@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import TagManager from 'react-gtm-module'
+import loadJs from 'loadjs'
 
 const PopupThankyou = ({ close }) => {
   useEffect(() => {
@@ -9,6 +10,10 @@ const PopupThankyou = ({ close }) => {
       }
     }
     TagManager.dataLayer(tagManagerArgs)
+
+    loadJs(['/assets/js/sberSdkLead.js'], {
+      async: false
+    })
   }, [])
   return (
     <div id='thankyou' className='popup-modal mfp-with-anim'>

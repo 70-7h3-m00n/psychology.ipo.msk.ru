@@ -10,6 +10,7 @@
   "dependencies": {
     "@maxmind/geoip2-node": "^2.3.2",
     "axios": "^0.21.1",
+    "loadjs": "^4.2.0",
     "moment": "^2.29.1",
     "next": "10.2.2",
     "next-secure-headers": "^2.2.0",

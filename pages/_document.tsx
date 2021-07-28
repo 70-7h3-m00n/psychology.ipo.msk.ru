@@ -46,6 +46,7 @@ class MyDocument extends Document {
             integrity='sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=='
             crossOrigin='anonymous'
             referrerPolicy='no-referrer'></script>
+          <script type='text/javascript' src='/assets/js/sberSdk.js'></script>
           <script type='text/javascript' src='/assets/js/myjs.js'></script>
         </Head>
         <body>
