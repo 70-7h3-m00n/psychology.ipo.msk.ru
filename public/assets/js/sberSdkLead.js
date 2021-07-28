@@ -12,6 +12,6 @@ iapSDK.push([
     id: uuidv4(),
     type: 'lead',
     offerAlias: '9wkl17719',
-    category: '500'
+    category: 'psychology'
   }
 ])
