@@ -9,6 +9,7 @@ import PopupThankyou from '@/components/popups/PopupThankyou'
 import PopupLoader from '@/components/popups/PopupLoader'
 import PopupError from '@/components/popups/PopupError'
 import DatesUntil from '@/components/dates/DatesUntil'
+import Script from 'next/script'
 
 type FormValues = {
   name: string
@@ -1374,6 +1375,7 @@ const Home = ({ data }) => {
         </footer>
         {/* /footer */}
       </div>
+      <Script src='/assets/js/myjs.js' />
     </>
   )
 }
