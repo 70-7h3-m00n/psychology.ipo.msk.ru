@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
       <Script src='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js' />
       <Script src='https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js' />
       <Script src='/assets/js/sberSdk.js' />
-      <Script src='/assets/js/myjs.js' />
+      <Script src='/assets/js/myjs.js' strategy='lazyOnload' />
     </>
   )
 }
