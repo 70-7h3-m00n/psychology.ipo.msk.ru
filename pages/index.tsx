@@ -550,8 +550,8 @@ const Home = ({ data }) => {
                 </div>
                 <ul className='specialties-counts'>
                   <li>
-                    <strong>26</strong>
-                    специальностей на выбор
+                    <strong>33</strong>
+                    специальности на выбор
                   </li>
                   <li>
                     <strong>300</strong>
