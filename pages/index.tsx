@@ -740,6 +740,61 @@ const Home = ({ data }) => {
                     <p>Экстремальная психология</p>
                   </div>
                 </li>
+
+                <li>
+                  <div className='specialties-block item-27'>
+                    <div className='number'>27</div>
+                    <p>
+                      Практическая психология с доп. квалификацией
+                      Психолог-психотерапевт
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <div className='specialties-block item-28'>
+                    <div className='number'>28</div>
+                    <p>
+                      Практическая психология с доп. квалификацией
+                      Педагог-психолог
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <div className='specialties-block item-29'>
+                    <div className='number'>29</div>
+                    <p>Психиатрия</p>
+                  </div>
+                </li>
+
+                <li>
+                  <div className='specialties-block item-30'>
+                    <div className='number'>30</div>
+                    <p>Психотерапия</p>
+                  </div>
+                </li>
+
+                <li>
+                  <div className='specialties-block item-31'>
+                    <div className='number'>31</div>
+                    <p>Психиатрия-наркология</p>
+                  </div>
+                </li>
+
+                <li>
+                  <div className='specialties-block item-32'>
+                    <div className='number'>32</div>
+                    <p>Клиническая психология</p>
+                  </div>
+                </li>
+
+                <li>
+                  <div className='specialties-block item-33'>
+                    <div className='number'>33</div>
+                    <p>Гештальт – терапия в практике психолога</p>
+                  </div>
+                </li>
               </ul>
               <a href='' className='button more-specialties'>
                 Еще специальности
